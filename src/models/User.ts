@@ -7,7 +7,7 @@ export class User {
     private role: string;
 
     private token?: string;
-    private permissionToSave: boolean;
+    private permissionToSave?: boolean;
 
     constructor(builder: UserBuilder) {
         this.name = builder.Name;
@@ -16,8 +16,8 @@ export class User {
         this.role = builder.Role;
         if (builder.Role === 'admin') {
             this.token = builder.Token;
+            this.permissionToSave = builder.PermissionToSave;
         }
-        this.permissionToSave = builder.PermissionToSave;
     }
 
     get Name() {
